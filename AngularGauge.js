@@ -111,59 +111,91 @@
 				myChart.style.top = chartTitle.clientHeight - 10 + "px"; 
 			}
 			
-			// Themes begin
+						// Themes begin
 			am4core.useTheme(am4themes_animated);
 			// Themes end
 
-			
-			var chart = am4core.create(myChart, am4charts.RadarChart);
-			chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+			// create chart
+			var chart = am4core.create("chartdiv", am4charts.GaugeChart);
+			chart.hiddenState.properties.opacity = 0;
+
+			var axis = chart.xAxes.push(new am4charts.ValueAxis());
+			axis.min = 0;
+			axis.max = 160;
+			axis.strictMinMax = true;
+			axis.renderer.inside = true;
+			//axis.renderer.ticks.template.inside = true;
+			//axis.stroke = chart.colors.getIndex(3);
+			axis.renderer.radius = am4core.percent(97);
+			//axis.renderer.radius = 80;
+			axis.renderer.line.strokeOpacity = 1;
+			axis.renderer.line.strokeWidth = 5;
+			axis.renderer.line.stroke = chart.colors.getIndex(0);
+			axis.renderer.ticks.template.disabled = false
+			axis.renderer.ticks.template.stroke = chart.colors.getIndex(0);
+			axis.renderer.labels.template.radius = 35;
+			axis.renderer.ticks.template.strokeOpacity = 1;
+			axis.renderer.grid.template.disabled = true;
+			axis.renderer.ticks.template.length = 10;
+			axis.hiddenState.properties.opacity = 1;
+			axis.hiddenState.properties.visible = true;
+			axis.setStateOnChildren = true;
+			axis.renderer.hiddenState.properties.endAngle = 180;
+
+			var axis2 = chart.xAxes.push(new am4charts.ValueAxis());
+			axis2.min = 0;
+			axis2.max = 240;
+			axis2.strictMinMax = true;
+
+			axis2.renderer.line.strokeOpacity = 1;
+			axis2.renderer.line.strokeWidth = 5;
+			axis2.renderer.line.stroke = chart.colors.getIndex(3);
+			axis2.renderer.ticks.template.stroke = chart.colors.getIndex(3);
+
+			axis2.renderer.ticks.template.disabled = false
+			axis2.renderer.ticks.template.strokeOpacity = 1;
+			axis2.renderer.grid.template.disabled = true;
+			axis2.renderer.ticks.template.length = 10;
+			axis2.hiddenState.properties.opacity = 1;
+			axis2.hiddenState.properties.visible = true;
+			axis2.setStateOnChildren = true;
+			axis2.renderer.hiddenState.properties.endAngle = 180;
+
+			var hand = chart.hands.push(new am4charts.ClockHand());
+			hand.fill = axis.renderer.line.stroke;
+			hand.stroke = axis.renderer.line.stroke;
+			hand.axis = axis;
+			hand.pin.radius = 14;
+			hand.startWidth = 10;
+
+			var hand2 = chart.hands.push(new am4charts.ClockHand());
+			hand2.fill = axis2.renderer.line.stroke;
+			hand2.stroke = axis2.renderer.line.stroke;
+			hand2.axis = axis2;
+			hand2.pin.radius = 10;
+			hand2.startWidth = 10;
+
+			setInterval(function() {
+			hand.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);
+			label.text = Math.round(hand.value).toString();
+			hand2.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);
+			label2.text = Math.round(hand2.value).toString();
+			}, 2000);
+
+			var legend = new am4charts.Legend();
+			legend.isMeasured = false;
+			legend.y = am4core.percent(100);
+			legend.verticalCenter = "bottom";
+			legend.parent = chart.chartContainer;
 
 			if(this.datasourceString.trim() === "{}") {
-				chart.data = [
-				  {
-					category: "One",
-					measuredescriptions: ["Net Promoter Score", "Detractors", "Promoter"],
-					value1: 8,
-					value2: 2,
-					value3: 4
-				  },
-				  {
-					category: "Two",
-					measuredescriptions: ["Net Promoter Score", "Detractors", "Promoter"],
-					value1: 11,
-					value2: 4,
-					value3: 2
-				  },
-				  {
-					category: "Three",
-					measuredescriptions: ["Net Promoter Score", "Detractors", "Promoter"],
-					value1: 7,
-					value2: 6,
-					value3: 6
-				  },
-				  {
-					category: "Four",
-					measuredescriptions: ["Net Promoter Score", "Detractors", "Promoter"],
-					value1: 13,
-					value2: 8,
-					value3: 3
-				  },
-				  {
-					category: "Five",
-					measuredescriptions: ["Net Promoter Score", "Detractors", "Promoter"],
-					value1: 12,
-					value2: 10,
-					value3: 5
-				  },
-				  {
-					category: "Six",
-					measuredescriptions: ["Net Promoter Score", "Detractors", "Promoter"],
-					value1: 15,
-					value2: 12,
-					value3: 4
-				  }
-				];
+				chart.data = [{
+					"name": "Measurement #1",
+					"fill": chart.colors.getIndex(0)
+					}, {
+					"name": "Measurement #2",
+					"fill": chart.colors.getIndex(3)
+					}];
 			} else {
 				var newDataSourceObj = JSON.parse(this.datasourceString);
 				var newChartData = [];
@@ -174,77 +206,59 @@
 					if(!newChartData.find(x => x.category_id === dimMemberID)) {
 						var newDataObject = {};
 						newDataObject.category_id = dimMemberID;
-						newDataObject.category = dimMemberDesc;
-						newDataObject.measuredescriptions = [];
-						newDataObject.measuredescriptions.push(msrObj.measure_description);
-						newDataObject.value1 = msrObj.formattedValue;
+						newDataObject.name = dimMemberDesc;
+					/*	newDataObject.measuredescriptions = [];
+						newDataObject.measuredescriptions.push(msrObj.measure_description);*/
+						newDataObject.fill = msrObj.formattedValue;
 						newChartData.push(newDataObject);
 					} else {
 						var existingObj = newChartData.find(x => x.category_id === dimMemberID);
-						existingObj.measuredescriptions.push(msrObj.measure_description);
-						var newProp = "value"+existingObj.measuredescriptions.length;
+					/*	existingObj.measuredescriptions.push(msrObj.measure_description);
+						var newProp = "value"+existingObj.measuredescriptions.length;*/
 						existingObj[newProp] = msrObj.formattedValue;
 					}
+					
 				}
 				chart.data = newChartData;
 			}
 			
 			
-
-			//chart.padding(20, 20, 20, 20);
-			chart.colors.step = 4;
-			
-			var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-			categoryAxis.dataFields.category = "category";
-			categoryAxis.renderer.labels.template.location = 0.5;
-			categoryAxis.renderer.labels.template.horizontalCenter = "right";
-			categoryAxis.renderer.grid.template.location = 0;
-			categoryAxis.renderer.tooltipLocation = 0.5;
-			categoryAxis.renderer.grid.template.strokeOpacity = 0.07;
-			categoryAxis.renderer.axisFills.template.disabled = true;
-			categoryAxis.interactionsEnabled = false;
-			categoryAxis.renderer.minGridDistance = 10;
-
-			var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
-			valueAxis.tooltip.disabled = true;
-			valueAxis.renderer.labels.template.horizontalCenter = "left";
-			valueAxis.min = 0.0;
-			var measuresSum = [];
-			for(var e = 0; e < chart.data.length; e++) {
-				var msrSum = 0;
-				for(var m = 0; m < chart.data[0].measuredescriptions.length; m++) {
-					var valNum = "value" + (m+1);
-					msrSum = msrSum + parseFloat(chart.data[e][valNum])
+			legend.itemContainers.template.events.on("hit", function(ev) {
+				var index = ev.target.dataItem.index;
+			  
+				if (!ev.target.isActive) {
+				  chart.hands.getIndex(index).hide();
+				  chart.xAxes.getIndex(index).hide();
+				  labelList.getIndex(index).hide();
 				}
-				measuresSum.push(msrSum);
-			}
-			valueAxis.max = Math.floor(Math.max(...measuresSum)) * 1.02;
-			valueAxis.strictMinMax = false;
-			valueAxis.renderer.maxLabelPosition = 1;
-			valueAxis.renderer.minGridDistance = Math.floor(valueAxis.max * 0.1);
-			valueAxis.renderer.grid.template.strokeOpacity = 0.07;
-			valueAxis.renderer.axisFills.template.disabled = true;
-			valueAxis.interactionsEnabled = false;
-
-			var seriesColors = this._series1Color.split(";");
-			for(var k = 0; k < chart.data[0].measuredescriptions.length; k++) {
-				var series1 = chart.series.push(new am4charts.RadarColumnSeries());
-				series1.columns.template.tooltipText = "{name}: {valueX.value}";
-				series1.name = chart.data[0].measuredescriptions[k];
-				series1.dataFields.categoryY = "category";
-				series1.dataFields.valueX = "value"+(k+1);
-				series1.stacked = true;
-				series1.columns.template.fill = am4core.color(seriesColors[k]);
-			}
-			
-			chart.seriesContainer.zIndex = -1;
-			
-			chart.endAngle = 180;
-			chart.innerRadius = am4core.percent(20);
-
-			chart.cursor = new am4charts.RadarCursor();
-			chart.cursor.lineY.disabled = true;
-
+				else {
+				  chart.hands.getIndex(index).show();
+				  chart.xAxes.getIndex(index).show();
+				  labelList.getIndex(index).show();
+				}
+			  });
+			  
+			  var labelList = new am4core.ListTemplate(new am4core.Label());
+			  labelList.template.isMeasured = false;
+			  labelList.template.background.strokeWidth = 2;
+			  labelList.template.fontSize = 25;
+			  labelList.template.padding(10, 20, 10, 20);
+			  labelList.template.y = am4core.percent(50);
+			  labelList.template.horizontalCenter = "middle";
+			  
+			  var label = labelList.create();
+			  label.parent = chart.chartContainer;
+			  label.x = am4core.percent(40);
+			  label.background.stroke = chart.colors.getIndex(0);
+			  label.fill = chart.colors.getIndex(0);
+			  label.text = "0";
+			  
+			  var label2 = labelList.create();
+			  label2.parent = chart.chartContainer;
+			  label2.x = am4core.percent(60);
+			  label2.background.stroke = chart.colors.getIndex(3);
+			  label2.fill = chart.colors.getIndex(3);
+			  label2.text = "0";
 		}
 	
 	}

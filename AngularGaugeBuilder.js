@@ -59,5 +59,5 @@
 		}
 	}
 
-	customElements.define("com-bva4kor-sac-radialbarchart-builder", RadialBarChartBuilderPanel);
+	customElements.define("com-ipg2kor-sac-angulargauge-builder", RadialBarChartBuilderPanel);
 })();

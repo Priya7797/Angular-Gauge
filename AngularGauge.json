@@ -1,9 +1,9 @@
 {
-	"id": "com.bva4kor.sac.radialbarchart",
+	"id": "com.ipg2kor.sac.angulargauge",
 	"version": "1.0.0",
-	"name": "Radial Bar Chart",
-	"description": "Radial Bar Chart",
-	"newInstancePrefix": "RadialBarChart",
+	"name": "Angular Gauge",
+	"description": "Angular Gauge",
+	"newInstancePrefix": "AngularGauge",
 	"icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAHKSURBVDhPfZK7bxNBEIe/XZ98dhxd0hiEeUoQSJMCCkQk6KCjpaOkgi5SevpI/AE0lHQ8RJECQUERCSElBYkjxCOmCFKkxORh4+NuvcfsPbCMjL/T6mb2Zn6zM3sqERhLX1YpM0cwXiAOebS6l5rXTwdcbdTE0qlfMOz9S2LZ+WWIbcLT5i6Lb78Txu5EA/4r4A52uH+AV1L0jCXwNRNeiYU3LfcxjxojoJQimJ7CSnUjCRO/FUkZ6jWPpffbMpoojRvbgu1bfDlBxy9Rl8KNZkLkQasbkWhRE1KBfn+4rwJdneThjTPcXf5EUvU49cOjcqQ4u6VY/9nNYlyvxpjUcXaxrLXp23Hpfpu5zW/M6+dcXi6jpZ7Jz65dr77v/w0ucPvFng5mOTn/gtbBDGbScmIz4bx2CslgBi7BLbGyDSHzoVaZI5q5wJa6IrdiZLgeQVB1EQOBXpjwdf2BJOXV5XHviG12X7+k97iO8g2HOzE3Fxp5Vj5ER7WiODe7xOeP9+h82ZDeNJ1whfaTZ8QfmsSeortnuLV4jGqQJwkjf+X2q3ccrWwQ6ZC1/dv4jWmOXyxz7c5UHjFgpEBoDRUtF55jpRFNdu/DwB85aLgBRSBZxgAAAABJRU5ErkJggg==",
 	"vendor": "RBEI",
 	"eula": "",
@@ -11,21 +11,21 @@
 	"webcomponents": [
 		{
 			"kind": "main",
-			"tag": "com-bva4kor-sac-radialbarchart",
+			"tag": "com-ipg2kor-sac-angulargauge",
 			"url": "https://babar-s-v.github.io/sac_wdgets/amCharts/radialbarchart.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "styling",
-			"tag": "com-bva4kor-sac-radialbarchart-styling",
+			"tag": "com-ipg2kor-sac-angulargauge-styling",
 			"url": "https://babar-s-v.github.io/sac_wdgets/amCharts/radialbarchart_styling.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "builder",
-			"tag": "com-bva4kor-sac-radialbarchart-builder",
+			"tag": "com-ipg2kor-sac-angulargauge-builder",
 			"url": "https://babar-s-v.github.io/sac_wdgets/amCharts/radialbarchart_builder.js",
 			"integrity": "",
 			"ignoreIntegrity": true

@@ -120,35 +120,8 @@
 				chart.hiddenState.properties.opacity = 0;
 
 				var axis = chart.xAxes.push(new am4charts.ValueAxis());
-
-			if(this.datasourceString.trim() === "{}") {
 				axis.min = 0;
 				axis.max = 160;
-			} else {
-				var newDataSourceObj = JSON.parse(this.datasourceString);
-				var newChartData = [];
-				for(var i = 0; i < newDataSourceObj.length; i++) {
-					var dimMemberID = newDataSourceObj[i].dimensions[0].member_id;
-					var dimMemberDesc = newDataSourceObj[i].dimensions[0].member_description;
-					var msrObj = newDataSourceObj[i].measure;
-					if(!newChartData.find(x => x.category_id === dimMemberID)) {
-						var newDataObject = {};
-						newDataObject.category_id = dimMemberID;
-						newDataObject.category = dimMemberDesc;
-						newDataObject.measuredescriptions = [];
-						newDataObject.measuredescriptions.push(msrObj.measure_description);
-						newDataObject.value1 = msrObj.formattedValue;
-						newChartData.push(newDataObject);
-					} else {
-						var existingObj = newChartData.find(x => x.category_id === dimMemberID);
-						existingObj.measuredescriptions.push(msrObj.measure_description);
-						var newProp = "value"+existingObj.measuredescriptions.length;
-						existingObj[newProp] = msrObj.formattedValue;
-					}
-				}
-				chart.data = newChartData;
-			}
-			
 			
 			axis.strictMinMax = true;
 			axis.renderer.inside = true;

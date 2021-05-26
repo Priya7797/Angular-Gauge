@@ -12,21 +12,21 @@
 		{
 			"kind": "main",
 			"tag": "com-ipg2kor-sac-angulargauge",
-			"url": "https://babar-s-v.github.io/sac_wdgets/amCharts/radialbarchart.js",
+			"url": "https://priya7797.github.io/Angular-Gauge/AngularGauge.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "styling",
 			"tag": "com-ipg2kor-sac-angulargauge-styling",
-			"url": "https://babar-s-v.github.io/sac_wdgets/amCharts/radialbarchart_styling.js",
+			"url": "https://priya7797.github.io/Angular-Gauge/AngularGaugeBuilder.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "builder",
 			"tag": "com-ipg2kor-sac-angulargauge-builder",
-			"url": "https://babar-s-v.github.io/sac_wdgets/amCharts/radialbarchart_builder.js",
+			"url": "https://priya7797.github.io/Angular-Gauge/AngularGaugeStyling.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		}

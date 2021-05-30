@@ -11,8 +11,8 @@
 	"webcomponents": [
 		{
 			"kind": "main",
-			"tag": "com-ipg2kor-sac-angulargaugestatic",
-			"url": "https://priya7797.github.io/Angular-Gauge/staticgauge.js",
+			"tag": "com-ipg2kor-sac-angulargauge",
+			"url": "https://priya7797.github.io/Angular-Gauge/AngularGauge.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},

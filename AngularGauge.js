@@ -156,6 +156,7 @@
 			hand.axis = axis;
 			hand.pin.radius = 14;
 			hand.startWidth = 10;
+			hand.showValue(50);
 
 			var hand2 = chart.hands.push(new am4charts.ClockHand());
 			hand2.fill = axis2.renderer.line.stroke;
@@ -163,13 +164,14 @@
 			hand2.axis = axis2;
 			hand2.pin.radius = 10;
 			hand2.startWidth = 10;
+			hand2.showValue(150);
 
-			setInterval(function() {
-			hand.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);
-			label.text = Math.round(hand.value).toString();
-			hand2.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);
-			label2.text = Math.round(hand2.value).toString();
-			}, 2000);
+			// setInterval(function() {
+			// hand.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);
+			// label.text = Math.round(hand.value).toString();
+			// hand2.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);
+			// label2.text = Math.round(hand2.value).toString();
+			// }, 2000);
 
 			var legend = new am4charts.Legend();
 			legend.isMeasured = false;
@@ -220,6 +222,11 @@
 			label2.background.stroke = chart.colors.getIndex(3);
 			label2.fill = chart.colors.getIndex(3);
 			label2.text = "0";
+
+			//   hand.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);
+		label.text = Math.round(hand.value).toString();
+		//   hand2.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);
+			label2.text = Math.round(hand2.value).toString();
 
 		}
 	}

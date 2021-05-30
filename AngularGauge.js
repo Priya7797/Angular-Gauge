@@ -98,7 +98,7 @@
 				myChart.style.height = myChart.clientHeight - chartTitle.clientHeight - 10 + "px";
 				myChart.style.top = chartTitle.clientHeight - 10 + "px"; 
 			
-			
+			}
 			
 						// Themes begin
 			am4core.useTheme(am4themes_animated);
@@ -228,7 +228,7 @@
 		//   hand2.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);
 			label2.text = Math.round(hand2.value).toString();
 
-		}
+		
 	}
 	
 }

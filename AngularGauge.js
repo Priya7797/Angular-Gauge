@@ -224,7 +224,7 @@
 		}
 	}
 	
-	}
+}
 
 	customElements.define("com-ipg2kor-sac-angulargauge", AngularGauge);
 })();

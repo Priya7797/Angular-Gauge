@@ -105,7 +105,7 @@
 			// Themes end
 
 			// create chart
-			var chart = am4core.create("chartdiv", am4charts.GaugeChart);
+			var chart = am4core.create(myChart, am4charts.GaugeChart);
 			chart.hiddenState.properties.opacity = 0;
 
 			var axis = chart.xAxes.push(new am4charts.ValueAxis());

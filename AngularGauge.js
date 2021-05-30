@@ -97,7 +97,7 @@
 				}
 				myChart.style.height = myChart.clientHeight - chartTitle.clientHeight - 10 + "px";
 				myChart.style.top = chartTitle.clientHeight - 10 + "px"; 
-			}
+			
 			
 			
 						// Themes begin
@@ -222,6 +222,7 @@
 			label2.text = "0";
 
 		}
+	}
 	
 	}
 

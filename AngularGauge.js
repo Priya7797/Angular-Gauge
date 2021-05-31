@@ -133,8 +133,8 @@
 
 
 			var axis = chart.xAxes.push(new am4charts.ValueAxis());
-			axis.min = _min1;
-			axis.max = _max1;
+			axis.min = 0;
+			axis.max = 160;
 			axis.strictMinMax = true;
 			axis.renderer.inside = true;
 			//axis.renderer.ticks.template.inside = true;
@@ -156,8 +156,8 @@
 			axis.renderer.hiddenState.properties.endAngle = 180;
 
 			var axis2 = chart.xAxes.push(new am4charts.ValueAxis());
-			axis2.min = _min2;
-			axis2.max = _max2;
+			axis2.min = 0;
+			axis2.max = 240;
 			axis2.strictMinMax = true;
 
 			axis2.renderer.line.strokeOpacity = 1;
@@ -180,7 +180,7 @@
 			hand.axis = axis;
 			hand.pin.radius = 14;
 			hand.startWidth = 10;
-			hand.showValue(_actual1);
+			hand.showValue(50);
 
 			var hand2 = chart.hands.push(new am4charts.ClockHand());
 			hand2.fill = axis2.renderer.line.stroke;
@@ -188,7 +188,7 @@
 			hand2.axis = axis2;
 			hand2.pin.radius = 10;
 			hand2.startWidth = 10;
-			hand2.showValue(actual2);
+			hand2.showValue(150);
 
 			// setInterval(function() {
 			// hand.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);

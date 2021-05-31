@@ -42,6 +42,40 @@
 			"description": "Background color",
 			"default": "#67b7dc;#a367dc;#dc6788"
 		},
+
+		"min1": {
+			"type": "number",
+			"description": "Minimum value for measure1",
+			"default": "0"
+		},
+		"max1": {
+			"type": "number",
+			"description": "Maximum value for mesure1",
+			"default": "160"
+		},
+		"actual1": {
+			"type": "number",
+			"description": "Actual value for measure1",
+			"default": "30"
+		},
+		
+		"min2": {
+			"type": "number",
+			"description": "Minimum value for measure2",
+			"default": "20"
+		},
+		"max2": {
+			"type": "number",
+			"description": "Maximum value for mesure2",
+			"default": "200"
+		},
+		"actual2": {
+			"type": "number",
+			"description": "Actual value for measure2",
+			"default": "100"
+		},
+
+
 		"title": {
 			"type": "string",
 			"description": "Title of the Chart",
@@ -78,6 +112,63 @@
 			"description": "Gets the datasource for the chart",
 			"body": "return this.datasourceString;"
 		},
+
+
+		"setMeasure1": {
+			"description": "Sets the measurement for the chart",
+			"parameters": [
+				{
+					"name": "newMin1",
+					"type": "number",
+					"description": "Min value for the widget"
+				},
+				{
+					"name": "newMax1",
+					"type": "number",
+					"description": "Max value for the widget"
+				},
+				{
+					"name": "newActual1",
+					"type": "number",
+					"description": "actual value for the widget"
+				}
+			],
+			"body": "this.min2 = newMin2, this.max2= newMax2, this.actual2=newActual2;"
+		},
+		"getMeasure1": {
+			"returnType": "number",
+			"description": "Gets the datasource for the chart",
+			"body": "return this.min2, this.max2, this.actual2;"
+		},
+		"setMeasure2": {
+			"description": "Sets the measurement for the chart",
+			"parameters": [
+				{
+					"name": "newMin2",
+					"type": "number",
+					"description": "Min value for the widget"
+				},
+				{
+					"name": "newMax2",
+					"type": "number",
+					"description": "Max value for the widget"
+				},
+				{
+					"name": "newActual2",
+					"type": "number",
+					"description": "actual value for the widget"
+				}
+			],
+			"body": "this.min2 = newMin2, this.max2= newMax2, this.actual2=newActual2;"
+		},
+		"getMeasure2": {
+			"returnType": "number",
+			"description": "Gets the second measurement for the chart",
+			"body": "return this.min2, this.max2, this.actual2;"
+		},
+
+
+
 		"setColor": {
 			"description": "Sets the background color.",
 			"parameters": [

@@ -3,6 +3,7 @@
 	let _series1Color;
 	let _chartTitle;
 	let _chartTitleFontSize;
+	let _min1, _min2, _max1, _max2, _actual1, _actual2;
 	const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
 	const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
 	const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"
@@ -72,6 +73,27 @@
 			if ("titlefontsize" in changedProperties) {
 				this._chartTitleFontSize = changedProperties["titlefontsize"];
 			}
+
+			if ("min1" in changedProperties) {
+				this._min1 = changedProperties["min1"];
+			}
+			if ("max1" in changedProperties) {
+				this._max1 = changedProperties["max1"];
+			}
+			if ("actual1" in changedProperties) {
+				this._actual1 = changedProperties["actual"];
+			}
+			if ("min2" in changedProperties) {
+				this._min2 = changedProperties["min2"];
+			}
+			if ("max2" in changedProperties) {
+				this._max2 = changedProperties["max2"];
+			}
+			if ("actual2" in changedProperties) {
+				this._actual2 = changedProperties["actual2"];
+			}
+
+
 			if (this._firstConnection === 1) {
 				this.loadthis();
 			}
@@ -110,27 +132,9 @@
 
 
 
-
-			if(this.datasourceString.trim() === "{}") { 
-				console.log("Inside if statement");
-			  
-			  
-			  }
-			  
-			  else {
-							  var newDataSourceObj = JSON.parse(this.datasourceString);
-							  var newChartData = [];
-				  			console.log(newDataSourceObj);
-							
-							  
-			  
-			  }
-
-
-
 			var axis = chart.xAxes.push(new am4charts.ValueAxis());
-			axis.min = 0;
-			axis.max = 160;
+			axis.min = _min1;
+			axis.max = _max1;
 			axis.strictMinMax = true;
 			axis.renderer.inside = true;
 			//axis.renderer.ticks.template.inside = true;
@@ -152,8 +156,8 @@
 			axis.renderer.hiddenState.properties.endAngle = 180;
 
 			var axis2 = chart.xAxes.push(new am4charts.ValueAxis());
-			axis2.min = 0;
-			axis2.max = 240;
+			axis2.min = _min2;
+			axis2.max = _max2;
 			axis2.strictMinMax = true;
 
 			axis2.renderer.line.strokeOpacity = 1;
@@ -176,7 +180,7 @@
 			hand.axis = axis;
 			hand.pin.radius = 14;
 			hand.startWidth = 10;
-			hand.showValue(50);
+			hand.showValue(_actual1);
 
 			var hand2 = chart.hands.push(new am4charts.ClockHand());
 			hand2.fill = axis2.renderer.line.stroke;
@@ -184,7 +188,7 @@
 			hand2.axis = axis2;
 			hand2.pin.radius = 10;
 			hand2.startWidth = 10;
-			hand2.showValue(150);
+			hand2.showValue(actual2);
 
 			// setInterval(function() {
 			// hand.showValue(Math.random() * 160, 1000, am4core.ease.cubicOut);

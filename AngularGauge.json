@@ -114,57 +114,105 @@
 		},
 
 
-		"setMeasure1": {
+		"setMin1": {
 			"description": "Sets the measurement for the chart",
 			"parameters": [
 				{
 					"name": "newMin1",
 					"type": "number",
 					"description": "Min value for the widget"
-				},
-				{
-					"name": "newMax1",
-					"type": "number",
-					"description": "Max value for the widget"
-				},
-				{
-					"name": "newActual1",
-					"type": "number",
-					"description": "actual value for the widget"
 				}
 			],
-			"body": "this.min2 = newMin2, this.max2= newMax2, this.actual2=newActual2;"
+			"body": "this.min1 = newMin1;"
 		},
-		"getMeasure1": {
+		"getMin1": {
 			"returnType": "number",
 			"description": "Gets the datasource for the chart",
-			"body": "return this.min2, this.max2, this.actual2;"
+			"body": "return this.min1;"
 		},
-		"setMeasure2": {
+		
+
+		"setMin2": {
 			"description": "Sets the measurement for the chart",
 			"parameters": [
 				{
 					"name": "newMin2",
 					"type": "number",
 					"description": "Min value for the widget"
-				},
+				}
+			],
+			"body": "this.min2 = newMin2;"
+		},
+		"getMin2": {
+			"returnType": "number",
+			"description": "Gets the datasource for the chart",
+			"body": "return this.min2;"
+		},
+		"setMax1": {
+			"description": "Sets the measurement for the chart",
+			"parameters": [
+				{
+					"name": "newMax1",
+					"type": "number",
+					"description": "Min value for the widget"
+				}
+			],
+			"body": "this.max1 = newMax1;"
+		},
+		"getMax1": {
+			"returnType": "number",
+			"description": "Gets the datasource for the chart",
+			"body": "return this.max1;"
+		},
+		"setMax2": {
+			"description": "Sets the measurement for the chart",
+			"parameters": [
 				{
 					"name": "newMax2",
 					"type": "number",
-					"description": "Max value for the widget"
-				},
+					"description": "Min value for the widget"
+				}
+			],
+			"body": "this.max2 = newMax2;"
+		},
+		"getMax2": {
+			"returnType": "number",
+			"description": "Gets the datasource for the chart",
+			"body": "return this.max2;"
+		},
+
+		"setActual1": {
+			"description": "Sets the measurement for the chart",
+			"parameters": [
+				{
+					"name": "newActual1",
+					"type": "number",
+					"description": "Min value for the widget"
+				}
+			],
+			"body": "this.actual1 = newActual1;"
+		},
+		"getActual1": {
+			"returnType": "number",
+			"description": "Gets the datasource for the chart",
+			"body": "return this.actual1;"
+		},
+		
+		"setActual2": {
+			"description": "Sets the measurement for the chart",
+			"parameters": [
 				{
 					"name": "newActual2",
 					"type": "number",
-					"description": "actual value for the widget"
+					"description": "Min value for the widget"
 				}
 			],
-			"body": "this.min2 = newMin2, this.max2= newMax2, this.actual2=newActual2;"
+			"body": "this.actual2 = newActual2;"
 		},
-		"getMeasure2": {
+		"getActual2": {
 			"returnType": "number",
-			"description": "Gets the second measurement for the chart",
-			"body": "return this.min2, this.max2, this.actual2;"
+			"description": "Gets the datasource for the chart",
+			"body": "return this.actual2;"
 		},
 
 

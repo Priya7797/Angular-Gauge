@@ -46,33 +46,33 @@
 		"min1": {
 			"type": "number",
 			"description": "Minimum value for measure1",
-			"default": "0"
+			"default": 0
 		},
 		"max1": {
 			"type": "number",
 			"description": "Maximum value for mesure1",
-			"default": "160"
+			"default": 160
 		},
 		"actual1": {
 			"type": "number",
 			"description": "Actual value for measure1",
-			"default": "30"
+			"default": 30
 		},
 		
 		"min2": {
 			"type": "number",
 			"description": "Minimum value for measure2",
-			"default": "20"
+			"default": 20
 		},
 		"max2": {
 			"type": "number",
 			"description": "Maximum value for mesure2",
-			"default": "200"
+			"default": 200
 		},
 		"actual2": {
 			"type": "number",
 			"description": "Actual value for measure2",
-			"default": "100"
+			"default": 100
 		},
 
 

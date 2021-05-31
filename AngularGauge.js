@@ -108,6 +108,68 @@
 			var chart = am4core.create(myChart, am4charts.GaugeChart);
 			chart.hiddenState.properties.opacity = 0;
 
+
+
+
+			if(this.datasourceString.trim() === "{}") { 
+
+				chart.data = [{
+				  "name": "Stage #1",
+				  "value": 600
+				}, {
+				  "name": "Stage #2",
+				  "value": 300
+				}, {
+				  "name": "Stage #3",
+				  "value": 60
+				}, {
+				  "name": "Stage #4",
+				  "value": 180
+				}, {
+				  "name": "Stage #5",
+				  "value": 50
+				}, {
+				  "name": "Stage #6",
+				  "value": 20
+				}, {
+				  "name": "Stage #7",
+				  "value": 10
+				}];
+			  
+			  
+			  }
+			  
+			  else {
+							  var newDataSourceObj = JSON.parse(this.datasourceString);
+							  var newChartData = [];
+							  for(var i = 0; i < newDataSourceObj.length; i++) {
+								  var dimMemberID = newDataSourceObj[i].dimensions[0].member_id;
+								  var dimMemberDesc = newDataSourceObj[i].dimensions[0].member_description;
+								  var msrObj = newDataSourceObj[i].measure;
+								  if(!newChartData.find(x => x.category_id === dimMemberID)) {
+									  var newDataObject = {};
+									  newDataObject.category_id = dimMemberID;
+									  newDataObject.name = dimMemberDesc;
+								  /*	newDataObject.measuredescriptions = [];
+									  newDataObject.measuredescriptions.push(msrObj.measure_description);*/
+									  newDataObject.value = msrObj.formattedValue;
+									  newChartData.push(newDataObject);
+								  } else {
+									  var existingObj = newChartData.find(x => x.category_id === dimMemberID);
+								  /*	existingObj.measuredescriptions.push(msrObj.measure_description);
+									  var newProp = "value"+existingObj.measuredescriptions.length;*/
+									  existingObj[newProp] = msrObj.formattedValue;
+								  }
+								  
+							  }
+							  chart.data = newChartData;
+							  
+			  
+			  }
+
+			  console.log(chart.data);
+
+
 			var axis = chart.xAxes.push(new am4charts.ValueAxis());
 			axis.min = 0;
 			axis.max = 160;

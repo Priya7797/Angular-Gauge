@@ -32,7 +32,7 @@
 		}
 	],
 	"properties": {
-		
+
 		"color": {
 			"type": "string",
 			"description": "Background color",
@@ -115,6 +115,11 @@
 			],
 			"body": "this.min1 = newMin1, this.max1=newMax1, this.actual1=newActual1;"
 		},
+		"getMeasure1": {
+			"returnType": "number",
+			"description": "Gets the datasource for the chart",
+			"body": "return this.min1, this.max1, this.actual1;"
+		},
 
 		"setMeasure2": {
 			"description": "Sets the measurement for the chart",
@@ -139,37 +144,12 @@
 			"body": "this.min2 = newMin2, this.max2=newMax2, this.actual2=newActual2;"
 		},
 
-		"getMin1": {
+		"getMeasure2": {
 			"returnType": "number",
 			"description": "Gets the datasource for the chart",
-			"body": "return this.min1;"
+			"body": "return this.min2, this.max2, this.actual2;"
 		},
 		
-		"getMin2": {
-			"returnType": "number",
-			"description": "Gets the datasource for the chart",
-			"body": "return this.min2;"
-		},
-		"getMax1": {
-			"returnType": "number",
-			"description": "Gets the datasource for the chart",
-			"body": "return this.max1;"
-		},
-		"getMax2": {
-			"returnType": "number",
-			"description": "Gets the datasource for the chart",
-			"body": "return this.max2;"
-		},
-		"getActual1": {
-			"returnType": "number",
-			"description": "Gets the datasource for the chart",
-			"body": "return this.actual1;"
-		},
-		"getActual2": {
-			"returnType": "number",
-			"description": "Gets the datasource for the chart",
-			"body": "return this.actual2;"
-		},
 
 		"setColor": {
 			"description": "Sets the background color.",

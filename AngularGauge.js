@@ -81,7 +81,7 @@
 				this._max1 = changedProperties["max1"];
 			}
 			if ("actual1" in changedProperties) {
-				this._actual1 = changedProperties["actual"];
+				this._actual1 = changedProperties["actual1"];
 			}
 			if ("min2" in changedProperties) {
 				this._min2 = changedProperties["min2"];

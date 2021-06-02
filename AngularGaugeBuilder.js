@@ -58,8 +58,12 @@
 							title: this.title,
 							titlefontsize: this.titlefontsize,
 							min1: this.min1,
-							Max1: this.max1,
-							actual1: this.actual1
+							max1: this.max1,
+							actual1: this.actual1,
+							min2: this.min1,
+							max2: this.max1,
+							actual2: this.actual1
+
 
 						}
 					}

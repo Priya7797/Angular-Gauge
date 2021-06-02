@@ -61,6 +61,7 @@
 
 		onCustomWidgetBeforeUpdate(changedProperties) {
 			this._props = { ...this._props, ...changedProperties };
+				
 		}
 		
 		onCustomWidgetAfterUpdate(changedProperties) {
@@ -73,26 +74,6 @@
 			if ("titlefontsize" in changedProperties) {
 				this._chartTitleFontSize = changedProperties["titlefontsize"];
 			}
-
-			if ("min1" in changedProperties) {
-				this._min1 = changedProperties["min1"];
-			}
-			if ("max1" in changedProperties) {
-				this._max1 = changedProperties["max1"];
-			}
-			if ("actual1" in changedProperties) {
-				this._actual1 = changedProperties["actual1"];
-			}
-			if ("min2" in changedProperties) {
-				this._min2 = changedProperties["min2"];
-			}
-			if ("max2" in changedProperties) {
-				this._max2 = changedProperties["max2"];
-			}
-			if ("actual2" in changedProperties) {
-				this._actual2 = changedProperties["actual2"];
-			}
-
 
 			if (this._firstConnection === 1) {
 				this.loadthis();
@@ -121,6 +102,12 @@
 				myChart.style.top = chartTitle.clientHeight - 10 + "px"; 
 			
 			}
+			    this._min1 = changedProperties["min1"];
+				this._max1 = changedProperties["max1"];
+				this._actual1 = changedProperties["actual1"];
+				this._min2 = changedProperties["min2"];
+				this._max2 = changedProperties["max2"];			
+				this._actual2 = changedProperties["actual2"];
 			
 						// Themes begin
 			am4core.useTheme(am4themes_animated);

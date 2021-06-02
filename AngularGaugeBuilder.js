@@ -12,23 +12,35 @@
 					<td><input id="chart_title_fontsize" type="number" size="2" maxlength="2"></td>
 				</tr>
 				<tr>
-				<td><B> Measurement 1 </B></td></tr><br>
-				<tr><td><label for="fmin1">Minimum Value:</label>
-				<input type="text" id="fmin1" name="min1"></td></tr><br>
-				<tr><td><label for="fmax1">Maximum Value:</label>
-				<input type="text" id="fmax1" name="max1"></td></tr><br>
-				<tr><td><label for="factual1">Actual Value:</label>
-				<input type="text" id="factual1" name="actual1"></td><br>
+				<td><B> Measurement 1 </B></td>
+				</tr>
+				<tr>
+				<td><label for="fmin1">Minimum Value:</label></td>
+				<td><input type="text" id="fmin1" name="min1"></td>
+				</tr>
+				<tr>
+				<td><label for="fmax1">Maximum Value:</label></td>
+				<td><input type="text" id="fmax1" name="max1"></td>
+				</tr>
+				<tr>
+				<td><label for="factual1">Actual Value:</label></td>
+				<td><input type="text" id="factual1" name="actual1"></td>
 				</tr>
 
 				<tr>
-				<td> <B>Measurement 2 </B></td><br></tr>
-				<tr><td><label for="fmin2">Minimum Value:</label>
-				<input type="text" id="fmin2" name="min2"></td></tr><br>
-				<tr><td><label for="fmax2">Maximum Value:</label>
-				<input type="text" id="fmax2" name="max2"></td></tr><br>
-				<tr><td><label for="factual2">Actual Value:</label>
-				<input type="text" id="factual2" name="actual2"></td><br>
+				<td> <B>Measurement 2 </B></td>
+				</tr>
+				<tr>
+				<td><label for="fmin2">Minimum Value:</label></td>
+				<td><input type="text" id="fmin2" name="min2"></td>
+				</tr>
+				<tr>
+				<td><label for="fmax2">Maximum Value:</label></td>
+				<td><input type="text" id="fmax2" name="max2"></td>
+				</tr>
+				<tr>
+				<td><label for="factual2">Actual Value:</label></td>
+				<td><input type="text" id="factual2" name="actual2"></td>
 				</tr>
 
 			</table>

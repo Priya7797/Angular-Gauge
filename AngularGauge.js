@@ -202,10 +202,7 @@
 			legend.y = am4core.percent(100);
 			legend.verticalCenter = "bottom";
 			legend.parent = chart.chartContainer;
-			chart.legend.fontSize = 5;
-			var markerTemplate = chart.legend.markers.template;
-			markerTemplate.width = 5;
-			markerTemplate.height = 5;
+
 			legend.data = [{
 			"name": "Measurement#1",
 			"fill": chart.colors.getIndex(0)
@@ -215,9 +212,9 @@
 			}];
 
 			chart.legend.fontSize = 5;
-			var markerTemplate = chart.legend.markers.template;
-			markerTemplate.width = 5;
-			markerTemplate.height = 5;
+			// var markerTemplate = chart.legend.markers.template;
+			// markerTemplate.width = 5;
+			// markerTemplate.height = 5;
 
 			legend.itemContainers.template.events.on("hit", function(ev) {
 			var index = ev.target.dataItem.index;

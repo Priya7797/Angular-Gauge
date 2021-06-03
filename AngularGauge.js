@@ -74,14 +74,22 @@
 				this._chartTitleFontSize = changedProperties["titlefontsize"];
 			}
 
-			if ("measure1" in changedProperties) {
+			if ("min1" in changedProperties) {
 				this._min1 = changedProperties["min1"];
+			}
+			if ("max1" in changedProperties) {
 				this._max1 = changedProperties["max1"];
+			}
+			if ("actual1" in changedProperties) {
 				this._actual1 = changedProperties["actual1"];
 			}
-			if ("measure2" in changedProperties) {
+			if ("min2" in changedProperties) {
 				this._min2 = changedProperties["min2"];
+			}
+			if ("max2" in changedProperties) {
 				this._max2 = changedProperties["max2"];
+			}
+			if ("actual2" in changedProperties) {
 				this._actual2 = changedProperties["actual2"];
 			}
 

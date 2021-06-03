@@ -211,7 +211,7 @@
 			"fill": chart.colors.getIndex(3)
 			}];
 
-			chart.legend.fontSize = 5;
+			//chart.legend.fontSize = 5;
 			// var markerTemplate = chart.legend.markers.template;
 			// markerTemplate.width = 5;
 			// markerTemplate.height = 5;
